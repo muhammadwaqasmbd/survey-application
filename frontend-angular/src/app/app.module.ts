@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { UserSurveyComponent } from './components/user-survey/user-survey.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AdminsComponent } from './components/admins/admins.component';
+import { ListAdminsComponent } from './components/list-admins/list-admins.component';
 import { ListSurveysComponent } from './components/list-surveys/list-surveys.component';
 import { TakeSurveyComponent } from './components/take-survey/take-survey.component';
 import { TakeSurveyQuestionsComponent } from './components/take-survey-questions/take-survey-questions.component';
@@ -39,6 +41,8 @@ import { ExportAsModule } from 'ngx-export-as';
     AddOptionsComponent,
     AddAdminComponent,
     SurveyDetailsComponent,
+    AdminsComponent,
+    ListAdminsComponent
   ],
 
   imports: [

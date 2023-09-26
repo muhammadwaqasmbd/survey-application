@@ -81,4 +81,22 @@ public class SurveyController {
   public List<Headers> getAllSurvey() {
     return surveyService.getAllSurvey();
   }
+
+  // returns a list of all admins
+  @GetMapping("/admin/getAll")
+  public List<Admin> getAllAdmins() {
+    return adminService.getAllAdmins();
+  }
+
+  // delete admin
+  @PostMapping("/admin/delete")
+  public void deleteAdmin(@RequestBody Object object) {
+    adminService.deleteAdmin(Long.valueOf(object.toString()));
+  }
+
+  @GetMapping("/admin/{id}")
+  public Admin getAdminById(@PathVariable("id") Long id) {
+    return adminService.getAdmin(id);
+  }
+
 }

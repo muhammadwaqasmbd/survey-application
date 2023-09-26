@@ -1,0 +1,42 @@
+<div class="container">
+    <div *ngIf="adminHeaders?.length === 0; else elseBlock">
+        <p></p>
+        <h4 style="color: red; padding: 30px; margin: 20px;" class="text-center font-weight-bold">
+            No admins available
+        </h4>
+        <p></p>
+        <p style="padding: 30px; margin: 20px;" class="text-center font-weight-bold">
+            Click <a class="link" routerLink="/createAdmin">here</a> to create a new admin.
+        </p>
+    </div>
+    <ng-template #elseBlock>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let adminHeader of adminHeaders;let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{adminHeader.firstName}} {{adminHeader.lastName}}</td>
+                    <td>
+                        {{adminHeader.email}} 
+                    </td>
+                    <td><button (click)="deleteAdmin(adminHeader.id)" class="btn btn-danger">X</button></td>
+                    <td>
+                        <button class="btn btn-info" (click)="editAdmin(adminHeader)">
+                            <!-- <a [routerLink]="['/adminDetails/' + adminHeader.id]"> -->
+                            Details
+                            <!-- </a> -->
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</div>

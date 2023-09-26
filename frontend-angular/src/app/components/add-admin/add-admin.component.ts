@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Admin } from 'src/app/common/admin';
 import { DbServiceService } from 'src/app/services/db-service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,11 +14,25 @@ export class AddAdminComponent implements OnInit {
 
   newAdmin: Admin = new Admin();
   adminAdded: boolean = false;
+  adminId = null;
+  buttonName: String = "Save";
 
-  constructor(private dbService: DbServiceService, private router: Router, private authService: AuthService) { }
+  constructor(private dbService: DbServiceService, private router: Router, private authService: AuthService,
+    private route:ActivatedRoute) { 
+      this.adminId = route.snapshot.params["id"]
+    }
 
   ngOnInit(): void {
-    this.newAdmin.initialize();
+    if(this.adminId){
+      this.dbService.getAdmin(this.adminId).subscribe(
+        data => {
+          this.buttonName = "Update"
+          this.newAdmin.initializeExisting(data);
+        }
+      )
+    }else{
+      this.newAdmin.initialize();
+    }
   }
 
   addAdmin(f: any) {
@@ -28,7 +42,7 @@ export class AddAdminComponent implements OnInit {
       }
     )
     console.log(this.newAdmin);
-    this.adminAdded = true;
+    this.router.navigate(['/admins']​);
   }
 
   isLoggedIn(): boolean {

@@ -14,4 +14,13 @@ export class Admin {
         this.password = "";
         this.isPrimaryAdmin = 1;
     }
+
+    initializeExisting(admin: Admin) {
+        this.id = admin.id;
+        this.email = admin.email;
+        this.firstName = admin.firstName;
+        this.lastName = admin.lastName;
+        this.password = admin.password;
+        this.isPrimaryAdmin = 1;
+    }
 }

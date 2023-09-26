@@ -9,6 +9,9 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="/addAdmin">Add Admin</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/admins">Admins</a>
+            </li>
             <!-- <li class="nav-item">
                 <a class="nav-link">Survey Details</a>
             </li>
@@ -66,7 +69,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" [disabled]="!f.valid" class="btn btn-block btn-success">Add</button>
+            <button type="submit" [disabled]="!f.valid" class="btn btn-block btn-success">{{buttonName}}</button>
         </div>
     </form>
 </div>
@@ -75,6 +78,6 @@
         Admin Added Successfully
     </div>
     <div class="container text-center">
-        <a routerLink="/admin" class="link">Admin Home</a>
+        <a routerLink="/admins" class="link">Admin List</a>
     </div>
 </ng-template>

@@ -46,6 +46,23 @@ export class DbServiceService {
     return this.httpClient.post<Admin>(url, admin);
   }
 
+  // delete a admin by id
+  deleteAdmin(id: number): Observable<any> {
+    const url = `${this.baseUrl}admin/delete`;
+    return this.httpClient.post(url, id);
+  }
+
+  // get list of admins
+  getAdminList(): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}admin/getAll`);
+  }
+
+   // gets admin by id
+   getAdmin(id: number): Observable<any> {
+    const url = `${this.baseUrl}admin/${id}`;
+    return this.httpClient.get(url);
+  }
+
   // verify admin login
   verifyLogin(admin: Admin): Observable<any> {
     const url = `${this.baseUrl}/login`;
