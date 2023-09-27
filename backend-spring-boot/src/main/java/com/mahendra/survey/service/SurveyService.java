@@ -161,7 +161,7 @@ public class SurveyService {
               + " has been recorded successfully. Thanks for taking this survey.\n\n"
               + "Thanks and Regards,\nCampaign Management System";
 
-      emailService.sendSimpleMessage(to, subject, body);
+      //emailService.sendSimpleMessage(to, subject, body);
     } catch (NoSuchElementException e) {
       System.out.println("Exception: Response to a survey that does not exist");
     }

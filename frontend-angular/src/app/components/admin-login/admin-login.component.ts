@@ -40,13 +40,24 @@ export class AdminLoginComponent implements OnInit {
 
     this.dbService.verifyLogin(admn).subscribe(
       data => {
-        if (data.id != -1) {
-          this.admin = Object.assign(new Admin(), data);
-          this.errorMsg = "";
-          this.authService.login(data);
-          this.router.navigate(['admin']);
-        } else {
+        if(data.accessToken === "Error"){
           this.errorMsg = "Invalid User name or password";
+        }else{
+          localStorage.setItem("token",data.accessToken);
+          if (data.id != -1) {
+            let newAdmin = new Admin();
+            newAdmin.email = data.email;
+            newAdmin.firstName = data.firstName;
+            newAdmin.lastName = data.lastName;
+            newAdmin.id = data.id;
+            newAdmin.isPrimaryAdmin = data.isPrimaryAdmin;
+            this.admin = newAdmin;
+            this.errorMsg = "";
+            this.authService.login(newAdmin);
+            window.location.replace("/admin")
+          } else {
+            this.errorMsg = "Invalid User name or password";
+          }
         }
         // console.log(this.admin);
       }

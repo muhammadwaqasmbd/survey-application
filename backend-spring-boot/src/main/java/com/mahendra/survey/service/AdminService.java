@@ -36,4 +36,9 @@ public class AdminService {
     Optional<Admin> admin = adminRepository.findById(id);
     return admin.get();
   }
+
+  public Optional<Admin> getUserByEmail(String username) {
+    return adminRepository.getUserByEmail(username);
+  }
+
 }

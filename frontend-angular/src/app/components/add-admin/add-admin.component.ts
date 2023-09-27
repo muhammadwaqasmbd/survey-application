@@ -38,11 +38,9 @@ export class AddAdminComponent implements OnInit {
   addAdmin(f: any) {
     this.dbService.addAdmin(this.newAdmin).subscribe(
       data => {
-        console.log(data);
+        this.router.navigate(['/admins']​);
       }
     )
-    console.log(this.newAdmin);
-    this.router.navigate(['/admins']​);
   }
 
   isLoggedIn(): boolean {

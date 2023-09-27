@@ -34,7 +34,6 @@ export class TakeSurveyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.logout();
     this.surveyId = +this.route.snapshot.paramMap.get('id');
     this.getSurvey();
     this.createForm();

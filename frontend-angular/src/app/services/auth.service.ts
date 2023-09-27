@@ -11,8 +11,8 @@ export class AuthService {
 
   constructor() { }
 
-  login(adminJSON: any) {
-    this.admin = Object.assign(new Admin(), adminJSON);
+  login(newAdmin: any) {
+    this.admin = newAdmin;
     this.isLoggedIn = true;
     localStorage.setItem('admin', JSON.stringify(this.admin));
   }
@@ -29,6 +29,7 @@ export class AuthService {
     this.isLoggedIn = false;
     this.admin = new Admin();
     localStorage.removeItem('admin');
+    localStorage.removeItem('token');
   }
 
   hasItem(item: string): boolean {

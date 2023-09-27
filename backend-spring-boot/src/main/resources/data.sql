@@ -1,4 +1,4 @@
---insert into admin (email, first_name, last_name, primary_admin, password) values ('m@m.com', 'mahendra', 'bishnoi', '1', 'password');
+--insert into admin (email, first_name, last_name, primary_admin, password) values ('admin@admin.com', 'Super', 'Admin', '1', '$2a$10$0VxT2DBU3Oj5uczu4xEKaOlNYgDdb/DVU6HdAd6SkR7p9z6XyoJGi');
 --
 --INSERT INTO input_types (input_type) VALUES ('radio');
 --INSERT INTO input_types (input_type) VALUES ('checkbox_multiselect');
